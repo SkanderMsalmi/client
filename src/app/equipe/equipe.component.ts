@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Equip } from '../core/model/equipe';
+import { EquipeService } from '../core/services/equipe.service';
 
 @Component({
   selector: 'app-equipe',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EquipeComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private equipeService: EquipeService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
+    
+   
+    
   }
+
 
 }

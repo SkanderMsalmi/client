@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="col-12">
+      <div class="card my-4">
+        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+          <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+            <h6 class="text-white text-capitalize ps-3">Tableau Equipe</h6>
+          </div>
+        </div>
+        <div class="card-body px-0 pb-2">
+          <div class="table-responsive p-0">
+            <table class="table align-items-center mb-0">
+              <thead>
+                <tr>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Equipe</th>
+                  <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Niveau</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Modifier</th>
+                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Supprimer</th>
+                  <th class="text-secondary opacity-7"></th>
+                </tr>
+              </thead>
+              <tbody>
+               
+               
+                <tr *ngFor="let e of list">
+                    <td>
+                      <div class="d-flex px-2 py-1">
+                        
+                        <div class="d-flex flex-column justify-content-center">
+                            <p class="text-xs font-weight-bold mb-0">{{e.nomEquipe}}</p>
+                         
+                        </div>
+                      </div>
+                    </td>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">{{e.niveau}}</p>
+                      
+                    </td>
+                    <td class="align-middle text-center text-sm">
+                      <span class="btn btn-warning btn-sm m-auto">Modifier</span>
+                    </td>
+                    <td class="align-middle text-center">
+                        <span class="btn btn-danger btn-sm m-auto">Delete</span>
+                    </td>
+                    <td class="align-middle">
+                      <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                        Voirs Detail
+                      </a>
+                    </td>
+                  </tr>
+                
+                   
+               
+              </tbody>
+              
+            </table>
+            <div *ngIf="!list.length" class="d-flex justify-content-center align-items-center">
+                <h4>No data found</h4>
+                
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
