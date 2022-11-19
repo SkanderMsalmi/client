@@ -9,8 +9,8 @@ import { EquipeService } from '../core/services/equipe.service';
   styleUrls: ['./equipe.component.scss']
 })
 export class EquipeComponent implements OnInit {
-
-
+  
+  public searchEquip :string;
   constructor(private equipeService: EquipeService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {

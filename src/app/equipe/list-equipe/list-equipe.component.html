@@ -8,6 +8,11 @@
         </div>
         <div class="card-body px-0 pb-2">
           <div class="table-responsive p-0">
+            <div class="d-flex  input-search" >
+              <input class="form-control m-auto " [(ngModel)]="filterText"  placeholder="Entrer Nom d'equipe" aria-label="Search">
+              
+              <button  >search</button>
+            </div>
             <table class="table align-items-center mb-0">
               <thead>
                 <tr>
@@ -21,29 +26,29 @@
               <tbody>
                
                
-                <tr *ngFor="let e of list">
+                <tr *ngFor="let e of list | filterEquip:filterText">
                     <td>
                       <div class="d-flex px-2 py-1">
                         
                         <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0">{{e.nomEquipe}}</p>
+                            <p class="text-xs font-weight-bold mb-0">{{e.nomEquipe}}  </p>
                          
                         </div>
                       </div>
                     </td>
                     <td>
                       <p class="text-xs font-weight-bold mb-0">{{e.niveau}}</p>
-                      
+                     
                     </td>
                     <td class="align-middle text-center text-sm">
-                      <span class="btn btn-warning btn-sm m-auto">Modifier</span>
+                      <button class="btn btn-warning btn-sm m-auto" [routerLink]="['/equipes/editEquipe',e.idEquipe]">Modifier</button>
                     </td>
                     <td class="align-middle text-center">
-                        <span class="btn btn-danger btn-sm m-auto">Delete</span>
+                        <button class="btn btn-danger btn-sm m-auto" (click)="deleteEquipe(e)">Delete</button>
                     </td>
                     <td class="align-middle">
-                      <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                        Voirs Detail
+                      <a  class="text-secondary font-weight-bold text-xs" [routerLink]="[e.idEquipe,e.detailEquipe.idDetailEquipe]">
+                        Voir 
                       </a>
                     </td>
                   </tr>
@@ -53,9 +58,11 @@
               </tbody>
               
             </table>
-            <div *ngIf="!list.length" class="d-flex justify-content-center align-items-center">
-                <h4>No data found</h4>
-                
+            <div *ngIf="list.length < 1" class="d-flex flex-column justify-content-center align-items-center">
+               
+                <img src="/assets/img/nodata.png" alt="">
+           <a class="btn btn-primary" routerLink="/equipes/new">Ajouter</a> 
+
             </div>
           </div>
         </div>

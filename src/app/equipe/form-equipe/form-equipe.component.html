@@ -1,7 +1,7 @@
 <div class="d-flex flex-column m-auto justify-content-center align-items-center mt-5 border" >
 
 <form #f="ngForm" class="w-50" >
-    <h2>Ajouter Equipe</h2>
+    <h2>{{action}} Equipe</h2>
     <div class="form-group col-md-6">
         <label for="name">Name</label>
         <input type="text" name="name" class="form-control"  pattern="[A-Za-z]{3,12}$" required="true" [(ngModel)]="equip.nomEquipe">
@@ -28,6 +28,7 @@
         <input type="text" name="thematique" class="form-control"  pattern="[A-Za-z]{3,12}$" required="true" [(ngModel)]="equip.detailEquipe.thematique">
   
     </div>
-    <button class="btn btn-success mt-3 p-3" (click)="addEquip()" >Ajouter</button>
+    
+    <button class="btn btn-success mt-3 p-3" (click)="saveEquip()" >{{action}}</button>
 </form>
 </div>

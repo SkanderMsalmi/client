@@ -9,9 +9,10 @@ import { EquipeService } from 'src/app/core/services/equipe.service';
   styleUrls: ['./list-equipe.component.scss']
 })
 export class ListEquipeComponent implements OnInit {
-  public all : Equip[];
-  public list : Equip[];
+  public all : Equip[]=[];
+  public list : Equip[]=[];
   public niveau:string;
+  public filterText :string ="";
  
 
   constructor(private equipeService:EquipeService,private route:ActivatedRoute) { }
@@ -33,10 +34,23 @@ export class ListEquipeComponent implements OnInit {
             }
           }
         )
-        
-        
       }
     )
   }
+
+  updateEquipe(){
+
+  }
+
+  deleteEquipe(e:Equip){
+      let i = this.list.indexOf(e);
+      this.equipeService.deleteEquip(e).subscribe(
+        ()=>{
+          this.list.splice(i,1);
+        }
+      )
+  }
+
+
 
 }
