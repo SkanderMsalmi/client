@@ -1,1 +1,216 @@
-<p>detail-etudiant works!</p>
+<div class="container-fluid mx-3">
+<div class="row gutters-sm mt-3 ">
+    <div class="col-md-4 mb-3">
+      <div class="card">
+        <div class="card-body py-5">
+          <div class="d-flex flex-column align-items-center text-center">
+            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+            <div class="mt-3">
+              <h4>{{etudiant.nomE}} {{etudiant.prenomE}}</h4>
+              <p class="text-secondary mb-1">{{etudiant.opt}}</p>
+            
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card mb-3">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Nom</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{etudiant.nomE}}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Prenom</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{etudiant.prenomE}}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Option</h6>
+              </div>
+              <div class="col-sm-9 text-secondary">
+                {{etudiant.opt}}
+              </div>
+            </div>
+            <hr>
+            <div class="row d-flex ">
+              <div class="col-sm-3">
+                <h6 class="mb-0">Departement</h6>
+              </div>
+              <div class="col-sm-5 text-secondary" *ngIf="!isEditing">
+                {{etudiant.departement.nomDepart}} 
+              </div>
+              <div class="col-sm-5 text-secondary" *ngIf="isEditing">
+                <select class="form-control w-50" name="departement"  id="departement">
+                    <option value="RH">RH</option>
+                    <option value="Info">Info</option>
+                    <option value="S">S</option>
+                </select>
+              </div>
+
+              <div class="col-sm-4" >
+                 <button class="btn-perso enregistrer " (click)="edit()" *ngIf="!isEditing">Modifier</button>  
+                 <div class="d-flex">
+                 <button class=" btn-perso enregistrer btn-sm mb-0 " *ngIf="isEditing" (click)="updateDepartementFromEtudiant()">Enregistrer</button>  
+                 <button class=" btn-perso annuler btn-sm mb-0 mx-2" (click)="edit()" *ngIf="isEditing">Annuler</button>  
+
+                 </div> 
+            </div>
+            </div>
+            <hr>
+          
+           
+            <div class=" d-flex flex-row justify-content-end align-items-center p-0 ">
+              <div class="m-3 ">
+                <a class="btn btn-warning mb-0"  [routerLink]="['/etudiants/editEtudiant',etudiant.idEtudiant]" >Modifier</a>
+              </div>
+              <div >
+                <button class="btn btn-danger mb-0" (click)="deleteEtudiant(etudiant)">Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div class="row gutters-sm contrats">
+        <nav class="navbar navbar-expand ">
+            <div class="container px-2">
+               
+                <a href="#" class="navbar-brand"><h4>Contrats</h4> </a>
+                  
+                  <ul class="navbar-nav" >
+                    <i class="fa-solid fa-list m-2" (click)="view = 'list'"></i>
+                    <i class="fa-solid fa-table-cells-large m-2 " (click)="view = 'cards'"></i>
+                  </ul>
+                 
+                
+              </div>
+          </nav>
+         <div class="col-12 d-flex" style="flex-wrap:wrap;" *ngIf="view == 'cards'">
+            <div class="col-sm-4 mb-3 " *ngFor="let i of [1,2,3,4,5]" >
+                    <div class="card m-2">
+                        <div class="card-header text-center">Specialite</div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h6 class="mb-0">Date Debut : </h6>
+                                  </div>
+                                  <div class="col-sm-6 text-secondary">
+                                    31-01-2018
+                                  </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h6 class="mb-0">Date Fin : </h6>
+                                  </div>
+                                  <div class="col-sm-6 text-secondary">
+                                    31-01-2018
+                                  </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h6 class="mb-0">Montant : </h6>
+                                  </div>
+                                  <div class="col-sm-6 text-secondary">
+                                    1500$
+                                  </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <h6 class="mb-0">Archive : </h6>
+                                  </div>
+                                  <div class="col-sm-6 text-secondary">
+                                    Oui
+                                  </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-around">
+                            <a href="#" class="btn btn-warning">Modifier</a>
+                            <a href="#" class="btn btn-danger">Supprimer</a>
+                        </div>
+                       
+                      </div>
+              </div>
+         </div>
+         <div *ngIf="view == 'list'">
+            <table class="table align-items-center mb-0 " >
+                <thead>
+                  <tr>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Specialite</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Etudiant</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date Debut</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date Fin</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Montant</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Archive</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Modifier</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Supprimer</th>
+                    <th class="text-secondary opacity-7"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                 
+                 
+                  <tr *ngFor="let e of [1,2,3]">
+                      <td>
+                        <div class="d-flex px-2 py-1">
+                          
+                          <div class="d-flex flex-column justify-content-center">
+                              <p class="text-xs font-weight-bold mb-0">Informatique  </p>
+                           
+                          </div>
+                        </div>
+                      </td>
+                      <td class="align-middle" style="text-align: center">
+                        <p class="text-xs font-weight-bold mb-0">Skander Msalmi</p>
+                       
+                      </td>
+                      <td class="align-middle" style="text-align: center">
+                        <p class="text-xs font-weight-bold mb-0">31-01-2018</p>
+                       
+                      </td>
+                      <td class="align-middle" style="text-align: center">
+                        <p class="text-xs font-weight-bold mb-0">15-10-2019</p>
+                       
+                      </td>
+                      <td class="align-middle" style="text-align: center">
+                        <p class="text-xs font-weight-bold mb-0">1500$</p>
+                       
+                      </td>
+                      <td  class="align-middle" style="text-align: center">
+                        <p class="text-xs font-weight-bold mb-0">Oui</p>
+                       
+                      </td>
+                      <td class="align-middle text-center text-sm" style="text-align: center">
+                        <button class="btn btn-warning btn-sm m-auto" >Modifier</button>
+                      </td>
+                      <td class="align-middle text-center">
+                          <button class="btn btn-danger btn-sm m-auto"style="text-align: center" >Delete</button>
+                      </td>
+                      
+                    </tr>
+                  
+                     
+                 
+                </tbody>
+                
+              </table>
+         </div>
+          </div>
+      
+        
+       
+        </div>

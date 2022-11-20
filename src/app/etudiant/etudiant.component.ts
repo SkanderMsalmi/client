@@ -11,9 +11,7 @@ export class EtudiantComponent implements OnInit {
   constructor(private serviceEtudiant:EtudiantService) { }
 
   ngOnInit(): void {
-    this.serviceEtudiant.getAllEtudiants().subscribe(
-      (etudiant)=>console.log(etudiant)
-    )
+   
   }
 
 }

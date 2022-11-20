@@ -1,3 +1,3 @@
-enum Niveau{
+export enum Niveau{
     JUNIOR,SENIOR,EXPERT
 }

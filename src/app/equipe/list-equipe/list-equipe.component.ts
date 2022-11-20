@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Equip } from 'src/app/core/model/equipe';
+import { Niveau } from 'src/app/core/model/Niveau';
 import { EquipeService } from 'src/app/core/services/equipe.service';
 
 @Component({
@@ -11,7 +12,7 @@ import { EquipeService } from 'src/app/core/services/equipe.service';
 export class ListEquipeComponent implements OnInit {
   public all : Equip[]=[];
   public list : Equip[]=[];
-  public niveau:string;
+  public niveau:Niveau;
   public filterText :string ="";
  
 
