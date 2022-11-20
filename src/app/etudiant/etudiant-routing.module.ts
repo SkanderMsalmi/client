@@ -6,7 +6,9 @@ import { ListEtudiantComponent } from './list-etudiant/list-etudiant.component';
 
 const routes: Routes = [{ path: '', component: EtudiantComponent ,children:[
   {path:'',component:ListEtudiantComponent},
+  {path:'option/:option',component:ListEtudiantComponent},
   {path:'new',component:FormEtudiantComponent},
+ 
   {path:'editEtudiant/:idEtudiant',component:FormEtudiantComponent}
 ]}];
 

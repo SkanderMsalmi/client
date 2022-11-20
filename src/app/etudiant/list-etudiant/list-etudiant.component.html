@@ -9,7 +9,7 @@
         <div class="card-body px-0 pb-2">
           <div class="table-responsive p-0">
             <div class="d-flex  input-search" >
-              <input class="form-control m-auto "   placeholder="Entrer Nom d'etudiant" aria-label="Search">
+              <input class="form-control m-auto " [(ngModel)]="filterText"   placeholder="Entrer Nom d'etudiant" aria-label="Search">
               
               <button  >search</button>
             </div>
@@ -27,7 +27,7 @@
               <tbody>
                
                
-                <tr *ngFor="let e of list">
+                <tr *ngFor="let e of list | filterEtudiant:filterText">
                     <td>
                       <div class="d-flex px-2 py-1">
                         
@@ -46,7 +46,7 @@
                      
                     </td>
                     <td class="align-middle text-center text-sm">
-                      <button class="btn btn-warning btn-sm m-auto" [routerLink]="['editEtudiant',e.idEtudiant]">Modifier</button>
+                      <button class="btn btn-warning btn-sm m-auto" [routerLink]="['/etudiants/editEtudiant',e.idEtudiant]">Modifier</button>
                     </td>
                     <td class="align-middle text-center">
                         <button class="btn btn-danger btn-sm m-auto" (click)="deleteEtudiant(e)">Delete</button>

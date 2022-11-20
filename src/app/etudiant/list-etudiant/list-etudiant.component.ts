@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Equip } from 'src/app/core/model/equipe';
 import { Etudiant } from 'src/app/core/model/etudiant';
 import { EtudiantService } from 'src/app/core/services/etudiant.service';
 
@@ -10,11 +12,24 @@ import { EtudiantService } from 'src/app/core/services/etudiant.service';
 export class ListEtudiantComponent implements OnInit {
   public list : Etudiant[]=[];
   public all :Etudiant[]=[];
-  constructor(private serviceEtudiant:EtudiantService) { }
+  public option:string;
+  public filterText :string ="";
+  constructor(private serviceEtudiant:EtudiantService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
     this.serviceEtudiant.getAllEtudiants().subscribe(
-      (reponse)=>{this.list = reponse}
+      (reponse)=>{
+        this.all = reponse;
+        this.route.params.subscribe(
+          (params)=>{this.option = params['option'];
+          if(this.option != null){
+            this.list = this.all.filter((etudiant)=>etudiant.opt == this.option);
+          }else{
+            this.list = this.all;
+          }
+        }
+        )
+      }
       
     )
   }

@@ -7,6 +7,7 @@ import { ListEtudiantComponent } from './list-etudiant/list-etudiant.component';
 import { DetailEtudiantComponent } from './detail-etudiant/detail-etudiant.component';
 import { FormEtudiantComponent } from './form-etudiant/form-etudiant.component';
 import { FormsModule } from '@angular/forms';
+import { FilterEtudiantPipe } from '../pipes/filter-etudiant.pipe';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FormsModule } from '@angular/forms';
     EtudiantComponent,
     ListEtudiantComponent,
     DetailEtudiantComponent,
-    FormEtudiantComponent
+    FormEtudiantComponent,
+    FilterEtudiantPipe
   ],
   imports: [
     CommonModule,
