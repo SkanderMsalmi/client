@@ -30,36 +30,37 @@
               <tbody>
                
                
-                <tr *ngFor="let e of [1,2,3] ">
+                <tr *ngFor="let c of list ">
                     <td>
                       <div class="d-flex px-2 py-1">
                         
                         <div class="d-flex flex-column justify-content-center">
-                            <p class="text-xs font-weight-bold mb-0"> qsdf </p>
+                            <p class="text-xs font-weight-bold mb-0"> {{c.specialite}} </p>
                          
                         </div>
                       </div>
                     </td>
                     <td>
-                      <p class="text-xs font-weight-bold mb-0">qsdf</p>
+                        <p class="text-xs font-weight-bold mb-0">Skander</p>
+                       
+                      </td>
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0">{{c.dateDebutContrat}}</p>
                      
                     </td>
                     <td>
-                      <p class="text-xs font-weight-bold mb-0">qsdf</p>
+                      <p class="text-xs font-weight-bold mb-0">{{c.dateFinContrat}}</p>
                      
                     </td>
                     <td>
-                        <p class="text-xs font-weight-bold mb-0">qsdf</p>
+                        <p class="text-xs font-weight-bold mb-0">{{c.archive}}</p>
                        
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0">qsdf</p>
+                        <p class="text-xs font-weight-bold mb-0">{{c.montantContrat}}</p>
                        
                       </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">qsdf</p>
-                       
-                      </td>
+                      
                     <td class="align-middle text-center text-sm">
                       <button class="btn btn-warning btn-sm m-auto" >Modifier</button>
                     </td>
