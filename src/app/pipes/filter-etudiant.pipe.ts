@@ -12,7 +12,7 @@ export class FilterEtudiantPipe implements PipeTransform {
     }else{
      return etudiants.filter((etudiant)=>{
      
-         return etudiant.nomE.toLowerCase().startsWith(filterText.toLowerCase()) || etudiant.prenomE.toLowerCase().startsWith(filterText.toLowerCase());
+         return etudiant.nomE.toLowerCase().includes(filterText.toLowerCase()) || etudiant.prenomE.toLowerCase().includes(filterText.toLowerCase());
         })
     }
   }

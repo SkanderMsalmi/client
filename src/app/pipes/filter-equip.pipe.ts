@@ -12,7 +12,7 @@ export class FilterEquipPipe implements PipeTransform {
   }else{
    return equipes.filter((equip)=>{
    
-       return equip.nomEquipe.toLowerCase().startsWith(filterText.toLowerCase());
+       return equip.nomEquipe.toLowerCase().includes(filterText.toLowerCase());
       })
   }
   }
